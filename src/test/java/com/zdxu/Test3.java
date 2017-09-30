@@ -1,6 +1,7 @@
 package com.zdxu;
 
 import com.zdxu.dao.DemoDao;
+import com.zdxu.dao.DemoDaoImpl;
 import com.zdxu.dao.TestDao;
 import com.zdxu.service.DemoService;
 import com.zdxu.service.DemoServiceImpl;
@@ -28,11 +29,10 @@ public class Test3 {
         DemoDao demoDao3 = control.createMock(DemoDao.class);
         TestDao testDao = control.createMock(TestDao.class);
 
-        EasyMock.expect(testDao.test(EasyMock.anyString())).andReturn("xiao ming age is 24");
-
         EasyMock.expect(demoDao3.demo1(EasyMock.anyString(),
                 EasyMock.anyInt(), EasyMock.anyString())).andReturn("zdxu");
         EasyMock.expect(demoDao3.demo2(EasyMock.anyInt())).andReturn(25);
+        EasyMock.expect(testDao.test(EasyMock.anyString())).andReturn("xiao ming age is 24");
 
 
         control.replay();
